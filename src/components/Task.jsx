@@ -9,17 +9,14 @@ const Task = ({ task, onDelete, onEdit, onToggleComplete }) => {
     const saveEdit = () => {
         onEdit({ ...task, name: editedName, description: editedDescription });
         setIsEditing(false);
-};
+      };
+
+    if (!task) return null;
 
     return (
         <div className={`task ${task.completed ? 'completed' : ''}`}>
             {isEditing ? (
         <>
-          <input
-            value={editedName}
-            onChange={(e) => setEditedName(e.target.value)}
-            placeholder="Название"
-          />
           <textarea
             value={editedDescription}
             onChange={(e) => setEditedDescription(e.target.value)}
@@ -33,7 +30,6 @@ const Task = ({ task, onDelete, onEdit, onToggleComplete }) => {
             {task.description && <p>{task.description}</p>}
             <div className="task-buttons">
             <button onClick={() => setIsEditing(true)}>✏️</button>
-            <button onClick={() => onDelete(task.id)}>🗑️</button>
             <button onClick={() => onToggleComplete(task.id)}>
                 {task.completed ? '↩️' : '✅'}
             </button>

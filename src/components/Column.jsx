@@ -19,6 +19,7 @@ const addTask = () => {
     );
     updateBoardColumns(updatedColumns);
     setNewTaskName('');
+    
   };
 
 const deleteColumn = () => {
@@ -38,9 +39,10 @@ const saveNewName = () => {
 return (
     <div className="column">
         {editing ? (
-        <>
+        <> <div className="edit-column">
             <input value={newName} onChange={(e) => setNewName(e.target.value)} />
             <button onClick={saveNewName}>Сохранить</button>
+            </div>
         </>
 ) : (
             <h3>
@@ -66,7 +68,8 @@ return (
                 value={newTaskName}
                 onChange={(e) => setNewTaskName(e.target.value)}
                 placeholder="Новая задача"
-        />
+            />
+           
         <button onClick={addTask}>Добавить</button>
         </div>
     </div>

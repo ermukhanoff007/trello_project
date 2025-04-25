@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/TaskCard.css';
+import Task from './Task'
 
 const TaskCard = ({ task, column, board, updateBoardColumns }) => {
     const [editing, setEditing] = useState(false);
@@ -43,11 +44,26 @@ return (
         </>
 ) : (
         <>
-            <p onClick={toggleComplete}>{task.title}</p>
+            
+            <p >{task.title}</p>
             <div className="task-actions">
                 <button onClick={() => setEditing(true)}>✏️</button>
                 <button onClick={deleteTask}>🗑️</button>
             </div>
+            <Task
+            key={task.id}
+            task={task}
+            onEdit={(updatedTask) => {
+                const updatedTasks = column.tasks.map((t) =>
+                t.id === task.id ? updatedTask : t
+                );
+                const updatedColumns = board.columns.map((col) =>
+                col.id === column.id ? { ...col, tasks: updatedTasks } : col
+                );
+                updateBoardColumns(updatedColumns);
+            }}
+            onToggleComplete={toggleComplete}
+            />
         </>
     )}
     </div>

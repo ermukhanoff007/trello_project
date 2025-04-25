@@ -4,7 +4,7 @@ import Column from './Column';
 import '../styles/Board.css';
 
 const Board = ({ board }) => {
-const { boards, setBoards } = useContext(AppContext);
+const { boards, setBoards, setActiveBoardId } = useContext(AppContext);
 const [newColumnName, setNewColumnName] = useState('');
 const [editingColumnId, setEditingColumnId] = useState(null);
 const [editedColumnName, setEditedColumnName] = useState('');
@@ -42,8 +42,11 @@ const saveEdit = (columnId) => {
 };
 
     return (
-    <div className="board">
-        <h3>Доска: {board.name}</h3>
+    <div className="board" >
+        <div className="board-name">
+            <h3>Доска: {board.name}</h3>
+            <button onClick={() => setActiveBoardId(null)}>↩️</button>
+        </div>
         <div className="columns">
         {board.columns.map((column) => (
             <div key={column.id} className="co">
@@ -55,9 +58,9 @@ const saveEdit = (columnId) => {
             <input
                 value={newColumnName}
                 onChange={(e) => setNewColumnName(e.target.value)}
-                placeholder="Name of column "
+                placeholder="Имя колонки"
         />
-            <button onClick={addColumn}>Add Column</button>
+            <button onClick={addColumn}>Добавить колонну</button>
             </div>
         </div>
     </div>

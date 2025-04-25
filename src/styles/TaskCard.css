@@ -5,6 +5,7 @@
     margin-bottom: 8px;
     border-radius: 5px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: 0.3s;
 }
 .task-card button{
     background-color: #339989;
@@ -19,6 +20,19 @@
 }
 
 .task-card.completed {
+    background-color: #131515;
+    
+    color: #777;
+}
+.task-card.completed p
+{
     text-decoration: line-through;
+}
+.task-card.completed button{
+    background-color: #2B2C28;
+    color: #777;
+}
+.task-card.completed button:hover{
+    background-color: #131515;
     color: #777;
 }

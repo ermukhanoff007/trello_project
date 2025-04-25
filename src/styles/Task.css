@@ -1,16 +1,29 @@
 .task {
-    background-color: #fff;
+    background-color: #FFFAFB;
     border: 1px solid #ccc;
     border-radius: 6px;
     padding: 10px;
     margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content; 
+    align-items: center;
+    text-align: center;
+    justify-content: center;
 }
-.task.completed {
-    background-color: #d4edda;
+.task.textarea{
+    width: 100%;
+    padding: 6px;
+}
+.task.completed{
+    background-color: #2B2C28;
+    border: none;
+}
+.task.completed p{
     text-decoration: line-through;
 }
 .task-buttons {
     display: flex;
-    gap: 6px;
-    margin-top: 8px;
+    gap: 20px;
+    align-items: center;
 }
