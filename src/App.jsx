@@ -6,6 +6,7 @@ import '../src/styles/App.css';
 
 function App() {
   const { activeBoardId, boards } = useContext(AppContext);
+
   const board = boards.find((b) => b.id === activeBoardId);
 
   return (

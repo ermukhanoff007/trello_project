@@ -65,7 +65,7 @@ const saveEdit = (columnId) => {
                 <button onClick={() => deleteColumn(column.id)}>🗑️</button>
             </>
             )}
-                <Column column={column} board={board} />
+                <Column column={column} board={board} updateBoardColumns={updateBoard}/>
             </div>
         ))}
         <div className="add-column">

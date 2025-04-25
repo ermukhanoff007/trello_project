@@ -2,73 +2,78 @@ import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
 import '../styles/BoardList.css';
 
-const BoardList = ({ setActiveBoard }) => {
-const { boards, setBoards } = useContext(AppContext);
-const [newBoardName, setNewBoardName] = useState('');
-const [editingBoardId, setEditingBoardId] = useState(null);
-const [editedName, setEditedName] = useState('');
+const BoardList = () => {
+  const { boards, setBoards, setActiveBoardId } = useContext(AppContext);
+  const [newBoardName, setNewBoardName] = useState('');
+  const [editingBoardId, setEditingBoardId] = useState(null);
+  const [editedName, setEditedName] = useState('');
 
-const addBoard = () => {
+  const addBoard = () => {
     if (!newBoardName.trim()) return;
     const newBoard = {
-        id: Date.now(),
-        name: newBoardName,
-         columns: [],
+      id: Date.now(),
+      name: newBoardName,
+      columns: [],
     };
     setBoards([...boards, newBoard]);
     setNewBoardName('');
-};
+  };
 
-const deleteBoard = (id) => {
+  const deleteBoard = (id) => {
     if (window.confirm('Удалить доску?')) {
-        setBoards(boards.filter((b) => b.id !== id));
+      setBoards(boards.filter((b) => b.id !== id));
     }
-};
+  };
 
-const saveEditedBoard = (id) => {
+  const saveEditedBoard = (id) => {
     const updated = boards.map((b) =>
-        b.id === id ? { ...b, name: editedName } : b
+      b.id === id ? { ...b, name: editedName } : b
     );
     setBoards(updated);
     setEditingBoardId(null);
     setEditedName('');
-};
+  };
 
-return (
-        <div className="board-list">
-        <h2>Доски</h2>
-        <ul>
+  return (
+    <div className="board-list">
+      <h2>Доски</h2>
+      <ul>
         {boards.map((board) => (
-            <li key={board.id}>
+          <li key={board.id}>
             {editingBoardId === board.id ? (
-                <>
-                    <input
-                        value={editedName}
-                        onChange={(e) => setEditedName(e.target.value)}
+              <>
+                <input
+                  value={editedName}
+                  onChange={(e) => setEditedName(e.target.value)}
                 />
-                    <button onClick={() => saveEditedBoard(board.id)}>Сохранить</button>
-                    </>
-            ) : (   <>
-                <span onClick={() => setActiveBoard(board)}>{board.name}</span>
-                <button onClick={() => {
+                <button onClick={() => saveEditedBoard(board.id)}>Сохранить</button>
+              </>
+            ) : (
+              <>
+                <span onClick={() => setActiveBoardId(board.id)}>{board.name}</span>
+                <button
+                  onClick={() => {
                     setEditingBoardId(board.id);
                     setEditedName(board.name);
-                }}>✏️</button>
+                  }}
+                >
+                  ✏️
+                </button>
                 <button onClick={() => deleteBoard(board.id)}>🗑️</button>
-                </>
+              </>
             )}
-            </li>
+          </li>
         ))}
-        </ul>
-        <div>
-            <input
-                type="text"
-                value={newBoardName}
-                onChange={(e) => setNewBoardName(e.target.value)}
-                placeholder="Новая доска"
+      </ul>
+      <div>
+        <input
+          type="text"
+          value={newBoardName}
+          onChange={(e) => setNewBoardName(e.target.value)}
+          placeholder="Новая доска"
         />
         <button onClick={addBoard}>Добавить</button>
-        </div>
+      </div>
     </div>
   );
 };
