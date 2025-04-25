@@ -37,9 +37,18 @@ const BoardList = () => {
   return (
     <div className="board-list">
       <h2>Доски</h2>
+      <div className="new-board">
+        <input
+          type="text"
+          value={newBoardName}
+          onChange={(e) => setNewBoardName(e.target.value)}
+          placeholder="Новая доска"
+        />
+        <button onClick={addBoard}>Добавить</button>
+      </div>
       <ul>
         {boards.map((board) => (
-          <li key={board.id}>
+          <div key={board.id} className="board" onClick={() => setActiveBoardId(board.id)}>
             {editingBoardId === board.id ? (
               <>
                 <input
@@ -50,7 +59,7 @@ const BoardList = () => {
               </>
             ) : (
               <>
-                <span onClick={() => setActiveBoardId(board.id)}>{board.name}</span>
+                <span >{board.name}</span>
                 <button
                   onClick={() => {
                     setEditingBoardId(board.id);
@@ -62,18 +71,10 @@ const BoardList = () => {
                 <button onClick={() => deleteBoard(board.id)}>🗑️</button>
               </>
             )}
-          </li>
+          </div>
         ))}
       </ul>
-      <div>
-        <input
-          type="text"
-          value={newBoardName}
-          onChange={(e) => setNewBoardName(e.target.value)}
-          placeholder="Новая доска"
-        />
-        <button onClick={addBoard}>Добавить</button>
-      </div>
+      
     </div>
   );
 };

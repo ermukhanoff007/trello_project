@@ -1,6 +1,7 @@
 .board-list {
     padding: 30px;
     font-family: sans-serif;
+    color: #FFFAFB;
 }
 .boards {
     display: flex;
@@ -8,27 +9,42 @@
     gap: 10px;
 }
 .board {
-    background: #f0f0f0;
+    font-family: sans-serif;
+    color:#FFFAFB;
+    background: #2B2C28;
     padding: 15px 20px;
     border-radius: 8px;
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     transition: 0.2s;
 }
-.board:hover {
-    background-color: #ddd;
+.board button{
+    background: #2B2C28;
+    transition: 0.2s;
 }
+.board button:hover{
+    background: #339989;
+}
+
 .new-board {
     margin-top: 20px;
 }
 .new-board input {
+    background-color: #FFFAFB;
     padding: 8px;
     margin-right: 10px;
 }
 .new-board button {
     padding: 8px 12px;
-    background-color: #2e8bff;
-    color: white;
+    background-color: #2B2C28;
+    color: #FFFAFB;
+    border: none;
+    border-radius: 4px;
+}
+.new-board button:hover {
+    padding: 8px 12px;
+    background-color: #339989;
+    color: #FFFAFB;
     border: none;
     border-radius: 4px;
 }
@@ -36,17 +52,17 @@
     list-style: none;
     padding: 0;
 }
-.board-list li {
+.board-list div {
     display: flex;
     align-items: center;
     gap: 10px;
     margin-bottom: 5px;
 }
-.board-list li span {
+.board-list div span {
     flex: 1;
     cursor: pointer;
 }
-.board-list li button {
+.board-list div button {
     padding: 4px;
     font-size: 14px;
     cursor: pointer;

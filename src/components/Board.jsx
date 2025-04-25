@@ -46,25 +46,8 @@ const saveEdit = (columnId) => {
         <h3>Доска: {board.name}</h3>
         <div className="columns">
         {board.columns.map((column) => (
-            <div key={column.id} className="column">
-            {editingColumnId === column.id ? (
-            <>
-                <input
-                    value={editedColumnName}
-                    onChange={(e) => setEditedColumnName(e.target.value)}
-                />
-                <button onClick={() => saveEdit(column.id)}>Сохранить</button>
-            </>
-            ) : (
-            <>
-                <h4>{column.name}</h4>
-                <button onClick={() => {
-                    setEditingColumnId(column.id);
-                    setEditedColumnName(column.name);
-                }}>✏️</button>
-                <button onClick={() => deleteColumn(column.id)}>🗑️</button>
-            </>
-            )}
+            <div key={column.id} className="co">
+            
                 <Column column={column} board={board} updateBoardColumns={updateBoard}/>
             </div>
         ))}

@@ -10,7 +10,7 @@ function App() {
   const board = boards.find((b) => b.id === activeBoardId);
 
   return (
-    <div className="app">
+    <div className="App">
       {board ? <Board board={board} /> : <BoardList />}
     </div>
   );

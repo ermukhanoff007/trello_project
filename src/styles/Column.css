@@ -7,6 +7,7 @@
     flex-direction: column;
 
 }
+
 .column h3 {
     margin-bottom: 10px;
 }
@@ -22,10 +23,11 @@
 }
 
 .new-task button {
+    font-family: sans-serif;
     width: 100%;
     padding: 6px;
-    background-color: #2e8bff;
-    color: white;
+    background-color: #FFFAFB;
+    color: #131515;
     border: none;
     border-radius: 4px;
 }

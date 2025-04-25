@@ -9,13 +9,11 @@ const Column = ({ column, board, updateBoardColumns }) => {
     
 const addTask = () => {
     if (!newTaskName.trim()) return;
-
         const newTask = {
             id: Date.now(),
             title: newTaskName,
             completed: false,
     };
-    
     const updatedColumns = board.columns.map((col) =>
         col.id === column.id ? { ...col, tasks: [...col.tasks, newTask] } : col
     );

@@ -1,11 +1,22 @@
 .task-card {
-    background-color: white;
+    background-color: #7DE2D1;
+    color: #131515;
     padding: 10px;
     margin-bottom: 8px;
     border-radius: 5px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
-
+.task-card button{
+    background-color: #339989;
+    border: none;
+    padding: 5px;
+    margin: 5px;
+    transition: 0.3s;
+    border-radius: 4px;
+}
+.task-card button:hover{
+    background-color: #7DE2D1;
+}
 
 .task-card.completed {
     text-decoration: line-through;
