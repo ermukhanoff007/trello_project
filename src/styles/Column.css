@@ -1,0 +1,31 @@
+.column {
+    background: #f4f4f4;
+    min-width: 250px;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+
+}
+.column h3 {
+    margin-bottom: 10px;
+}
+
+.new-task {
+    margin-top: 10px;
+}
+
+.new-task input {
+    width: 100%;
+    padding: 6px;
+    margin-bottom: 5px;
+}
+
+.new-task button {
+    width: 100%;
+    padding: 6px;
+    background-color: #2e8bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}

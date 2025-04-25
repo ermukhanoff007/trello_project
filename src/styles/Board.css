@@ -1,0 +1,58 @@
+.board-container {
+    padding: 20px;
+
+
+}
+.columns {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    margin-top: 20px;
+}
+.new-column {
+    min-width: 200px;
+    padding: 10px;
+    border: 2px dashed #aaa;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.new-column input {
+    margin-bottom: 10px;
+    padding: 8px;
+    width: 100%;
+}
+
+.new-column button {
+    padding: 6px 10px;
+    background-color: #2e8bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+.board {
+    margin-top: 20px;
+}
+
+.columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.column {
+    background-color: #e9ecef;
+    padding: 10px;
+    border-radius: 6px;
+    width: 250px;
+}
+
+.add-column {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}

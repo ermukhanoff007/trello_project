@@ -1,0 +1,58 @@
+.board-list {
+    padding: 30px;
+    font-family: sans-serif;
+}
+.boards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.board {
+    background: #f0f0f0;
+    padding: 15px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: 0.2s;
+}
+.board:hover {
+    background-color: #ddd;
+}
+.new-board {
+    margin-top: 20px;
+}
+.new-board input {
+    padding: 8px;
+    margin-right: 10px;
+}
+.new-board button {
+    padding: 8px 12px;
+    background-color: #2e8bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+.board-list ul {
+    list-style: none;
+    padding: 0;
+}
+.board-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+.board-list li span {
+    flex: 1;
+    cursor: pointer;
+}
+.board-list li button {
+    padding: 4px;
+    font-size: 14px;
+    cursor: pointer;
+}
+.add-board input {
+    padding: 6px;
+    margin-top: 10px;
+    margin-right: 8px;
+}
